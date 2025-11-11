@@ -23,7 +23,7 @@
                         <td>{{ task.title }}</td>
                         <td>{{ task.description }}</td>
                         <td>{{ task.due_date }}</td>
-                        <td><a href="{% url 'editTask' task.id %}">Edit</a> | <a href="{% url 'deleteTask' task.id %}">Completed</a>
+                        <td><a href="{% url 'tasks:editTask' task.id %}">Edit</a> | <a href="{% url 'tasks:deleteTask' task.id %}">Completed</a>
                         </td>
                     </tr>
                     {% endfor %}
