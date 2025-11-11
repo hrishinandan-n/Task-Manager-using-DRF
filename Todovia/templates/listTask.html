@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+</head>
+<body>
+    {% extends 'home.html' %}
+    {% block content %}
+        {% if taskList %}
+            <br><br>
+            <table border="0" cellspacing="10">
+                <thead>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Due Date</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody>
+                    {% for task in taskList %}
+                    <tr>
+                        <td>{{ task.title }}</td>
+                        <td>{{ task.description }}</td>
+                        <td>{{ task.due_date }}</td>
+                        <td><a href="{% url 'editTask' task.id %}">Edit</a> | <a href="{% url 'deleteTask' task.id %}">Completed</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br><br>
+        {% else  %}
+            <p>Make this space yours by adding tasks.........</p>
+        {% endif %}
+    {% endblock %}
+</body>
+</html>
